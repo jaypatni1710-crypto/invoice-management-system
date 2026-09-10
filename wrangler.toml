@@ -1,0 +1,30 @@
+name = "narmada-billing-api"
+main = "backend/src/index.js"
+compatibility_date = "2026-05-23"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "narmada-billing-db"
+database_id = "8375cbe5-804c-4e51-9a04-a62e420e4a26"
+
+# ========================
+# PRODUCTION
+# ========================
+
+[env.production]
+
+[[env.production.d1_databases]]
+binding = "DB"
+database_name = "narmada-billing-db"
+database_id = "8375cbe5-804c-4e51-9a04-a62e420e4a26"
+
+# ========================
+# SANDBOX
+# ========================
+
+[env.sandbox]
+
+[[env.sandbox.d1_databases]]
+binding = "DB"
+database_name = "narmada-billing-sandbox"
+database_id = "300a8b21-be6a-4085-ae36-5b21cd41e4a2"

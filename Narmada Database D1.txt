@@ -1,0 +1,7 @@
+To access your new D1 Database in your Worker, add the following snippet to your configuration file:
+[[d1_databases]]
+binding = "narmada_billing_db"
+database_name = "narmada-billing-db"
+database_id = "8375cbe5-804c-4e51-9a04-a62e420e4a26"
+
+for the database of my project
