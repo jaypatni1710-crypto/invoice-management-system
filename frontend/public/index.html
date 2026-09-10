@@ -3487,7 +3487,14 @@ ${css}
           iframe.srcdoc = html;
         });
 
-        const target = iframe.contentDocument.body;
+        const idoc = iframe.contentDocument;
+        idoc.documentElement.style.background = '#fff';
+        idoc.body.style.margin = '0';
+        idoc.body.style.boxShadow = 'none';
+        idoc.body.style.padding = '8mm 8mm 9mm';
+        idoc.body.style.width = '210mm';
+
+        const target = idoc.body;
 
         const worker = html2pdf().from(target).set({
           margin: 0,
