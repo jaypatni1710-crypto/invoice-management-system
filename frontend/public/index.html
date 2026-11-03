@@ -727,6 +727,16 @@
       margin-bottom: 24px;
     }
 
+    .modal-header h2 svg, .form-section-title svg { width: 16px; height: 16px; vertical-align: -3px; margin-right: 6px; stroke: rgb(216 117 34); }
+    .modal-header h2 svg.lucide-eye { color: #63b3ed; }
+    .modal-header h2 svg.lucide-pencil, .form-section-title svg.lucide-pencil { color: var(--accent); }
+    #modal-view-company .modal-header h2 { color: var(--accent); }
+    #modal-add-company .modal-header h2 { color: var(--accent); }
+    #modal-edit-company .modal-header h2 { color: var(--accent); }
+    #modal-add-invoice .modal-header h2, #modal-add-invoice .modal-header h2 svg { color: var(--accent); }
+    #modal-invoice-detail .modal-header h2, #modal-invoice-detail .modal-header h2 svg { color: var(--accent); }
+    #modal-add-declaration .modal-header h2, #modal-add-declaration .modal-header h2 svg { color: var(--accent); }
+
     .modal-header h2 {
       font-family: 'Syne', sans-serif;
       font-size: 18px;
@@ -866,6 +876,8 @@
       max-width: 400px;
       text-align: center;
     }
+
+        .confirm-modal .confirm-icon svg { width: 48px; height: 48px; color: var(--danger); stroke: currentColor; }
 
     .confirm-modal .confirm-icon {
       font-size: 48px;
@@ -1314,7 +1326,7 @@
           </button>
           <button class="btn btn-ghost" onclick="openAddRailwayInvoice()"
             style="border-color:rgba(99,179,237,0.4);color:#63b3ed;">
-            🚆 Add Railway Invoice
+                        <i data-lucide="train-front" style="width:16px;height:16px;vertical-align:-3px;"></i> Add Railway Invoice
           </button>
         </div>
 
@@ -1531,7 +1543,7 @@
     <div class="modal-overlay" id="modal-add-company">
       <div class="modal">
         <div class="modal-header">
-          <h2>➕ Add Company Details</h2>
+          <h2><i data-lucide="plus"></i> Add Company Details</h2>
           <button class="modal-close" onclick="closeModal('modal-add-company')">✕</button>
         </div>
         <div class="form-group">
@@ -1540,7 +1552,7 @@
             placeholder="e.g. Shree Narmada Transport Company" />
           <div class="field-error" id="f-company-name-err">⚠ Company name is required</div>
         </div>
-        <div class="form-section-title">📍 Address</div>
+        <div class="form-section-title"><i data-lucide="map-pin"></i> Address</div>
         <div class="form-group">
           <label class="form-label">Address Line 1</label>
           <input type="text" class="form-input" id="f-address" placeholder="Plot No, Street, Area..." />
@@ -1561,7 +1573,7 @@
           <label class="form-label">State</label>
           <input type="text" class="form-input" id="f-state" value="Gujarat[24]" />
         </div>
-        <div class="form-section-title">📞 Contact</div>
+        <div class="form-section-title"><i data-lucide="phone"></i> Contact</div>
         <div class="form-row">
           <div class="form-group">
             <label class="form-label">Phone 1</label>
@@ -1576,7 +1588,7 @@
             <div class="field-error" id="f-phone2-err">⚠ Phone must contain digits only</div>
           </div>
         </div>
-        <div class="form-section-title">🧾 GST Details</div>
+        <div class="form-section-title"><i data-lucide="receipt"></i> GST Details</div>
         <div class="form-group">
           <label class="form-label">GST No</label>
           <input type="text" class="form-input" id="f-gst" placeholder="e.g. 24AAUFN9962C1ZS" oninput="gstFormat(this)"
@@ -1585,7 +1597,7 @@
         </div>
         <div class="modal-footer">
           <button class="btn btn-ghost" onclick="closeModal('modal-add-company')">Cancel</button>
-          <button class="btn btn-primary" onclick="saveCompany()">💾 Save Company</button>
+          <button class="btn btn-primary" onclick="saveCompany()">Save Company</button>
         </div>
       </div>
     </div>
@@ -1594,14 +1606,14 @@
     <div class="modal-overlay" id="modal-view-company">
       <div class="modal">
         <div class="modal-header">
-          <h2>👁 Company Details</h2>
+          <h2><svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg> Company Details</h2>
           <button class="modal-close" onclick="closeModal('modal-view-company')">✕</button>
         </div>
         <div class="view-field">
           <div class="vf-label">Company Name</div>
           <div class="vf-value" id="v-company-name">—</div>
         </div>
-        <div class="form-section-title">📍 Address</div>
+        <div class="form-section-title"><i data-lucide="map-pin"></i> Address</div>
         <div class="view-field">
           <div class="vf-label">Address Line 1</div>
           <div class="vf-value" id="v-address">—</div>
@@ -1620,7 +1632,7 @@
           <div class="vf-label">State</div>
           <div class="vf-value" id="v-state">—</div>
         </div>
-        <div class="form-section-title">📞 Contact</div>
+        <div class="form-section-title"><i data-lucide="phone"></i> Contact</div>
         <div class="view-row">
           <div class="view-field">
             <div class="vf-label">Phone 1</div>
@@ -1631,7 +1643,7 @@
             <div class="vf-value" id="v-phone2">—</div>
           </div>
         </div>
-        <div class="form-section-title">🧾 GST Details</div>
+        <div class="form-section-title"><i data-lucide="receipt"></i> GST Details</div>
         <div class="view-field">
           <div class="vf-label">GST No</div>
           <div class="vf-value" id="v-gst">—</div>
@@ -1646,7 +1658,7 @@
     <div class="modal-overlay" id="modal-edit-company">
       <div class="modal">
         <div class="modal-header">
-          <h2>✏️ Edit Company Details</h2>
+          <h2><i data-lucide="pencil"></i> Edit Company Details</h2>
           <button class="modal-close" onclick="closeModal('modal-edit-company')">✕</button>
         </div>
         <input type="hidden" id="e-id" />
@@ -1655,7 +1667,7 @@
           <input type="text" class="form-input" id="e-company-name" />
           <div class="field-error" id="e-company-name-err">⚠ Company name is required</div>
         </div>
-        <div class="form-section-title">📍 Address</div>
+        <div class="form-section-title"><i data-lucide="map-pin"></i> Address</div>
         <div class="form-group">
           <label class="form-label">Address Line 1</label>
           <input type="text" class="form-input" id="e-address" />
@@ -1675,7 +1687,7 @@
           <label class="form-label">State</label>
           <input type="text" class="form-input" id="e-state" />
         </div>
-        <div class="form-section-title">📞 Contact</div>
+        <div class="form-section-title"><i data-lucide="phone"></i> Contact</div>
         <div class="form-row">
           <div class="form-group">
             <label class="form-label">Phone 1</label>
@@ -1688,7 +1700,7 @@
             <div class="field-error" id="e-phone2-err">⚠ Phone must contain digits only</div>
           </div>
         </div>
-        <div class="form-section-title">🧾 GST Details</div>
+        <div class="form-section-title"><i data-lucide="receipt"></i> GST Details</div>
         <div class="form-group">
           <label class="form-label">GST No</label>
           <input type="text" class="form-input" id="e-gst" oninput="gstFormat(this)" maxlength="15"
@@ -1697,7 +1709,7 @@
         </div>
         <div class="modal-footer">
           <button class="btn btn-ghost" onclick="closeModal('modal-edit-company')">Cancel</button>
-          <button class="btn btn-primary" onclick="updateCompany()">💾 Update Company</button>
+          <button class="btn btn-primary" onclick="updateCompany()">Update Company</button>
         </div>
       </div>
     </div>
@@ -1705,7 +1717,7 @@
     <!-- ══ MODAL 4 — CONFIRM DELETE ══ -->
     <div class="modal-overlay" id="modal-confirm-delete">
       <div class="modal confirm-modal">
-        <div class="confirm-icon">🗑️</div>
+                <div class="confirm-icon"><i data-lucide="trash-2"></i></div>
         <h2>Delete Company?</h2>
         <p>You are about to permanently delete:</p>
         <div class="company-highlight" id="delete-company-name">—</div>
@@ -1764,7 +1776,7 @@
 
           <!-- ── REGULAR: Company Search ── -->
           <div id="regular-section" style="display:none;">
-            <div class="form-section-title">🏢 Select Company</div>
+            <div class="form-section-title"><i data-lucide="building-2"></i> Select Company</div>
 
             <div id="company-search-wrapper" style="position:relative;">
               <input type="text" class="form-input" id="invoice-company-search"
@@ -1796,7 +1808,7 @@
 
           <!-- ── RAILWAY: Client Details ── -->
           <div id="railway-section" style="display:none;">
-            <div class="form-section-title">🚆 Railway Client Details</div>
+            <div class="form-section-title"><i data-lucide="train-front"></i> Railway Client Details</div>
             <div class="form-group">
               <label class="form-label">Client Name *</label>
               <input type="text" class="form-input" id="rail-client-name" placeholder="e.g. Indian Railways"
@@ -1867,7 +1879,7 @@
           </div>
 
           <!-- ── COMMON: Invoice No + Date ── -->
-          <div class="form-section-title" style="margin-top:20px;">📋 Invoice Details</div>
+          <div class="form-section-title" style="margin-top:20px;"><i data-lucide="clipboard-list"></i> Invoice Details</div>
           <div class="form-row">
             <div class="form-group">
               <label class="form-label">Invoice No *</label>
@@ -1881,7 +1893,7 @@
           </div>
 
           <!-- ── Invoice Items Table ── -->
-          <div class="form-section-title" style="margin-top:4px;">📦 Invoice Entries</div>
+          <div class="form-section-title" style="margin-top:4px;"><i data-lucide="package"></i> Invoice Entries</div>
           <div style="overflow-x:auto;margin-top:10px;border:1px solid var(--border);border-radius:10px;">
             <table id="invoice-items-table" style="border-spacing:0;width:100%;min-width:760px;">
               <thead>
@@ -1922,7 +1934,7 @@
           </div>
 
           <!-- ── Note ── -->
-          <div class="form-section-title" style="margin-top:18px;">📝 Note <span
+          <div class="form-section-title" style="margin-top:18px;"><i data-lucide="sticky-note"></i> Note <span
               style="color:var(--muted);font-size:11px;font-weight:400;text-transform:none;">(optional)</span></div>
           <div class="form-group">
             <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer;margin-bottom:8px;">
@@ -1934,7 +1946,7 @@
           </div>
 
           <!-- ── Totals ── -->
-          <div class="form-section-title" style="margin-top:8px;">💰 Total</div>
+          <div class="form-section-title" style="margin-top:8px;"><i data-lucide="indian-rupee"></i> Total</div>
           <div class="form-row">
             <div class="form-group">
               <label class="form-label">Total Freight (₹)</label>
@@ -1952,7 +1964,7 @@
           <div
             style="display:flex;justify-content:space-between;align-items:center;margin-top:24px;padding-top:20px;border-top:1px solid var(--border);">
             <button class="btn btn-ghost" onclick="goBackInvoiceStep()">← Back</button>
-            <button class="btn btn-primary" id="create-invoice-btn" onclick="createInvoice()">✅ Create Invoice</button>
+            <button class="btn btn-primary" id="create-invoice-btn" onclick="createInvoice()">Create Invoice</button>
           </div>
 
         </div>
@@ -1974,7 +1986,7 @@
         <div id="inv-regular-section" style="display:none;">
           <!-- Company search (edit mode only) -->
           <div id="inv-company-search-section" style="display:none;">
-            <div class="form-section-title">🏢 Select Company</div>
+                        <div class="form-section-title"><i data-lucide="building-2"></i> Select Company</div>
             <div id="inv-edit-company-search-wrapper" style="position:relative;">
               <input type="text" class="form-input" id="inv-edit-company-search"
                 placeholder="Type company name to search..." oninput="searchInvEditCompany()" autocomplete="off" />
@@ -2006,7 +2018,7 @@
 
         <!-- ══ RAILWAY INVOICE SECTION ══ -->
         <div id="inv-railway-section" style="display:none;">
-          <div class="form-section-title">🚆 Railway Client Details</div>
+          <div class="form-section-title"><i data-lucide="train-front"></i> Railway Client Details</div>
           <!-- Client Name -->
           <div class="form-group">
             <label class="form-label">Client Name *</label>
@@ -2075,7 +2087,7 @@
         </div>
 
         <!-- ── INVOICE DETAILS ── -->
-        <div class="form-section-title">📋 Invoice Details</div>
+        <div class="form-section-title"><i data-lucide="clipboard-list"></i> Invoice Details</div>
         <div class="form-row" style="margin-bottom:16px;">
           <div class="form-group">
             <label class="form-label">Invoice No *</label>
@@ -2089,7 +2101,7 @@
         </div>
 
         <!-- ── INVOICE ENTRIES ── -->
-        <div class="form-section-title">📦 Invoice Entries</div>
+        <div class="form-section-title"><i data-lucide="package"></i> Invoice Entries</div>
         <div style="overflow-x:auto;margin-top:10px;border:1px solid var(--border);border-radius:10px;">
           <table style="border-spacing:0;width:100%;min-width:760px;">
             <thead>
@@ -2131,7 +2143,7 @@
         </div>
 
         <!-- ── NOTE ── -->
-        <div class="form-section-title" style="margin-top:18px;">📝 Note <span
+        <div class="form-section-title" style="margin-top:18px;"><i data-lucide="sticky-note"></i> Note <span
             style="color:var(--muted);font-size:11px;font-weight:400;text-transform:none;">(optional)</span></div>
         <div class="form-group">
           <label id="inv-detail-note-toggle-wrap"
@@ -2144,7 +2156,7 @@
         </div>
 
         <!-- ── TOTAL ── -->
-        <div class="form-section-title" style="margin-top:8px;">💰 Total</div>
+        <div class="form-section-title" style="margin-top:8px;"><i data-lucide="indian-rupee"></i>Total</div>
         <div class="form-row">
           <div class="form-group">
             <label class="form-label">Total Freight (₹)</label>
@@ -2162,7 +2174,7 @@
         <div
           style="display:flex;justify-content:space-between;align-items:center;margin-top:24px;padding-top:20px;border-top:1px solid var(--border);">
           <button class="btn btn-ghost" onclick="closeModal('modal-invoice-detail')">← Back</button>
-          <button id="inv-detail-save-btn" class="btn btn-primary" style="display:none;" onclick="saveInvDetail()">💾
+          <button id="inv-detail-save-btn" class="btn btn-primary" style="display:none;" onclick="saveInvDetail()">
             Update Invoice</button>
         </div>
 
@@ -2172,7 +2184,7 @@
     <!-- ══ MODAL 8 — CONFIRM DELETE INVOICE ══ -->
     <div class="modal-overlay" id="modal-confirm-delete-invoice">
       <div class="modal confirm-modal">
-        <div class="confirm-icon">🗑️</div>
+                <div class="confirm-icon"><i data-lucide="trash-2"></i></div>
         <h2>Delete Invoice?</h2>
         <p>You are about to permanently delete invoice:</p>
         <div class="company-highlight" id="del-inv-no">—</div>
@@ -2189,11 +2201,11 @@
     <div class="modal-overlay" id="modal-add-declaration">
       <div class="modal" style="max-width:520px;">
         <div class="modal-header">
-          <h2>➕ Add Declaration</h2>
+            <h2 id="decl-modal-title"><i data-lucide="plus"></i> Add Declaration</h2>
           <button class="modal-close" onclick="closeModal('modal-add-declaration')">✕</button>
         </div>
 
-        <div class="form-section-title" style="margin-top:0;">🏢 Select Company</div>
+        <div class="form-section-title" style="margin-top:0;"><i data-lucide="building-2"></i> Select Company</div>
         <div id="decl-company-search-wrapper" style="position:relative;">
           <input type="text" class="form-input" id="decl-company-search" placeholder="Type company name to search..."
             oninput="searchDeclCompany()" autocomplete="off" />
@@ -2211,7 +2223,7 @@
           <input type="date" class="form-input" id="decl-doc-date" />
         </div>
 
-        <div class="form-section-title">✏️ Company Details <span
+        <div class="form-section-title"><i data-lucide="pencil"></i> Company Details <span
             style="color:var(--muted);font-size:11px;font-weight:400;text-transform:none;">(editable)</span></div>
         <div class="form-group">
           <label class="form-label">Company Name *</label>
@@ -2229,7 +2241,7 @@
         </div>
         <input type="hidden" id="decl-gst" />
 
-        <div class="form-section-title">📅 Financial Year</div>
+        <div class="form-section-title"><i data-lucide="calendar"></i> Financial Year</div>
         <div class="form-group">
           <label class="form-label">Financial Year *</label>
           <input type="text" class="form-input" id="decl-fy" placeholder="e.g. 2026-2027" />
@@ -2260,7 +2272,7 @@
     <!-- ══ MODAL 10 — CONFIRM DELETE DECLARATION ══ -->
     <div class="modal-overlay" id="modal-confirm-delete-decl">
       <div class="modal confirm-modal">
-        <div class="confirm-icon">🗑️</div>
+                <div class="confirm-icon"><i data-lucide="trash-2"></i></div>
         <h2>Delete Declaration?</h2>
         <p>This action <strong>cannot be undone</strong>.</p>
         <input type="hidden" id="del-decl-idx" />
@@ -2299,7 +2311,7 @@
             padding:8px 20px;border-radius:8px;border:none;
             font-size:13px;font-weight:700;cursor:pointer;
             background:#22c55e;color:#fff;font-family:Arial,sans-serif;
-          ">🖨️ Print / Save PDF</button>
+                    "><i data-lucide="printer" style="width:16px;height:16px;vertical-align:-3px;"></i> Print / Save PDF</button>
             <button onclick="closeModal('modal-pdf-preview')" style="
             padding:8px 16px;border-radius:8px;border:none;
             font-size:13px;font-weight:700;cursor:pointer;
@@ -3029,7 +3041,8 @@
       if (!bills.length) { showToast('No matching bills found', 'error'); return; }
       const html = generateCAStatementHTML(bills, _caClientMap);
       document.getElementById('pdf-preview-frame').srcdoc = html;
-      document.getElementById('pdf-modal-title').textContent = '📊 CA Statement';
+            document.getElementById('pdf-modal-title').innerHTML = '<i data-lucide="bar-chart-2" style="width:16px;height:16px;vertical-align:-3px;margin-right:6px;"></i> CA Statement';
+      if (window.lucide) lucide.createIcons();
       openModal('modal-pdf-preview');
     }
 
@@ -3113,7 +3126,8 @@ ${css}
       const label = (from && to) ? `${pad(from)} to ${pad(to)}` : 'All Time';
       const html = generateCAStatementHTML(_csMatchedRows, {}, label);
       document.getElementById('pdf-preview-frame').srcdoc = html;
-      document.getElementById('pdf-modal-title').textContent = '📊 Client Statement';
+            document.getElementById('pdf-modal-title').innerHTML = '<i data-lucide="bar-chart-2" style="width:16px;height:16px;vertical-align:-3px;margin-right:6px;"></i> Client Statement';
+      if (window.lucide) lucide.createIcons();
       openModal('modal-pdf-preview');
     }
 
@@ -3534,7 +3548,7 @@ ${css}
         let html = isRailway ? generateRailwayInvoiceHTML(bill, railData) : generateRegularInvoiceHTML(bill);
         html = html.replace('</head>', `<style>
   html { background: #fff !important; }
-  body { margin: 0 !important; box-shadow: none !important; padding: 8mm 8mm 9mm !important; width: 210mm !important; }
+  
   .print-btn-bar { display: none !important; }
 </style></head>`);
 
@@ -3542,7 +3556,9 @@ ${css}
         const frame = document.getElementById('pdf-preview-frame');
         const title = document.getElementById('pdf-modal-title');
         const clientLabel = isRailway ? (railData.client_name || '') : (bill.company_name || '');
-        title.textContent = (isRailway ? '🚆 Railway Invoice' : '🧾 Invoice') + ' #' + bill.bill_no + (clientLabel ? ' — ' + clientLabel : '');
+                const IC = 'style="width:16px;height:16px;vertical-align:-3px;margin-right:6px;"';
+        title.innerHTML = (isRailway ? `<i data-lucide="train-front" ${IC}></i> Railway Invoice` : `<i data-lucide="receipt" ${IC}></i> Invoice`) + ' #' + escapeHtml(String(bill.bill_no)) + (clientLabel ? ' — ' + escapeHtml(clientLabel) : '');
+        if (window.lucide) lucide.createIcons();
         frame.srcdoc = html;
         openModal('modal-pdf-preview');
 
@@ -3678,9 +3694,9 @@ ${css}
         <div class="action-group">
           <button class="icon-btn icon-btn-view" title="Preview Invoice" onclick="printInvoice(${inv.id})"><i data-lucide="eye"></i></button>
           <button class="icon-btn icon-btn-edit" title="Edit Invoice" onclick="editInvoice(${inv.id})"><i data-lucide="pencil"></i></button>
-          <button class="icon-btn" style="border-color:#8b5cf6;color:#8b5cf6;" title="Duplicate Invoice" onclick="duplicateInvoice(${inv.id})">📄</button>
-          <button class="icon-btn" style="border-color:rgba(34,197,94,0.4);color:#22c55e;" title="Print / Save PDF" onclick="quickPrintInvoice(${inv.id})">🖨️</button>
-          <button class="icon-btn icon-btn-delete" title="Delete Invoice" onclick="deleteInvoice(${inv.id}, '${escapeJs(inv.bill_no)}')">🗑</button>
+          <button class="icon-btn" style="border-color:#8b5cf6;color:#8b5cf6;" title="Duplicate Invoice" onclick="duplicateInvoice(${inv.id})"><i data-lucide="copy"></i></button>
+          <button class="icon-btn" style="border-color:rgba(34,197,94,0.4);color:#22c55e;" title="Print / Save PDF" onclick="quickPrintInvoice(${inv.id})"><i data-lucide="printer"></i></button>
+          <button class="icon-btn icon-btn-delete" title="Delete Invoice" onclick="deleteInvoice(${inv.id}, '${escapeJs(inv.bill_no)}')"><i data-lucide="trash-2"></i></button>
         </div>
       </td>
     </tr>`;
@@ -3771,10 +3787,13 @@ ${css}
         document.getElementById('modal-invoice-detail').dataset.isRailway = isRailway ? '1' : '0';
 
         // Title
-        document.getElementById('inv-detail-title').textContent =
+                const EYE = '<i data-lucide="eye"></i> ';
+        const PENCIL = '<i data-lucide="pencil"></i> ';
+        document.getElementById('inv-detail-title').innerHTML =
           isRailway
-            ? (isEdit ? '✏️ Edit Railway Invoice' : '👁 View Railway Invoice')
-            : (isEdit ? '✏️ Edit Invoice' : '👁 View Invoice');
+            ? (isEdit ? PENCIL + 'Edit Railway Invoice' : EYE + 'View Railway Invoice')
+            : (isEdit ? PENCIL + 'Edit Invoice' : EYE + 'View Invoice');
+        if (window.lucide) lucide.createIcons();
 
         // Show/hide top sections
         document.getElementById('inv-regular-section').style.display = isRailway ? 'none' : 'block';
@@ -4207,7 +4226,15 @@ ${css}
       localStorage.setItem('sntc_declarations', JSON.stringify(allDeclarations));
     }
 
+        function setDeclTitle(isEdit) {
+      document.getElementById('decl-modal-title').innerHTML = isEdit
+        ? '<i data-lucide="pencil"></i> Edit Declaration'
+        : '<i data-lucide="plus"></i> Add Declaration';
+      if (window.lucide) lucide.createIcons();
+    }
+
     async function openAddDeclaration() {
+      setDeclTitle(false);
       if (!allCompanies.length) await fetchCompaniesOnly();
       declEditingId = null;
       document.getElementById('decl-company-search').value = '';
@@ -4288,7 +4315,8 @@ ${css}
 
     async function editDeclaration(d) {
       if (!allCompanies.length) await fetchCompaniesOnly();
-      declEditingId = d.id;
+        declEditingId = d.id;
+      setDeclTitle(true);
       document.getElementById('decl-company-search').value = d.company || '';
       document.getElementById('decl-company-dropdown').style.display = 'none';
       document.getElementById('decl-company').value = d.company || '';
@@ -4446,7 +4474,8 @@ ${css}
     function previewDeclaration(d) {
       const html = generateDeclarationHTML(d);
       const frame = document.getElementById('pdf-preview-frame');
-      document.getElementById('pdf-modal-title').textContent = '📋 Declaration — ' + d.company;
+            document.getElementById('pdf-modal-title').innerHTML = '<i data-lucide="clipboard-list" style="width:16px;height:16px;vertical-align:-3px;margin-right:6px;"></i> Declaration — ' + escapeHtml(d.company || '');
+      if (window.lucide) lucide.createIcons();
       frame.srcdoc = html;
       openModal('modal-pdf-preview');
     }
@@ -4603,7 +4632,7 @@ ${css}
       resetAddInvoice();
       // Always re-enable create button
       const btn = document.getElementById('create-invoice-btn');
-      if (btn) { btn.disabled = false; btn.textContent = '✅ Create Invoice'; }
+      if (btn) { btn.disabled = false; btn.textContent = 'Create Invoice'; }
     }
 
     function resetAddInvoice() {
@@ -4694,7 +4723,8 @@ ${css}
       document.getElementById('invoice-step-1').style.display = 'none';
 
       // Update title
-      document.getElementById('add-invoice-title').textContent = '🧾 Regular Invoice';
+            document.getElementById('add-invoice-title').innerHTML = '<i data-lucide="receipt"></i> Regular Invoice';
+      if (window.lucide) lucide.createIcons();
     }
 
     // Open Railway Invoice modal
@@ -4716,7 +4746,8 @@ ${css}
       document.getElementById('invoice-step-1').style.display = 'none';
 
       // Update title
-      document.getElementById('add-invoice-title').textContent = '🚆 Railway Invoice';
+            document.getElementById('add-invoice-title').innerHTML = '<i data-lucide="train-front"></i> Railway Invoice';
+      if (window.lucide) lucide.createIcons();
     }
 
     // Step 1 → Step 2
@@ -4726,8 +4757,9 @@ ${css}
       document.getElementById('invoice-step-2').style.display = 'block';
       document.getElementById('regular-section').style.display = type === 'regular' ? 'block' : 'none';
       document.getElementById('railway-section').style.display = type === 'railway' ? 'block' : 'none';
-      document.getElementById('add-invoice-title').textContent =
-        type === 'regular' ? '🧾 Regular Invoice' : '🚆 Railway Invoice';
+            document.getElementById('add-invoice-title').innerHTML =
+        type === 'regular' ? '<i data-lucide="receipt"></i> Regular Invoice' : '<i data-lucide="train-front"></i> Railway Invoice';
+      if (window.lucide) lucide.createIcons();
     }
 
     // Step 2 → Step 1
@@ -5140,7 +5172,7 @@ ${css}
         if (data.success) {
           showToast('✅ Invoice #' + billNo + ' created successfully!');
           btn.disabled = false;
-          btn.textContent = '✅ Create Invoice';
+          btn.textContent = 'Create Invoice';
           closeAddInvoice();
           loadInvoices();
           loadStats();
@@ -5148,12 +5180,12 @@ ${css}
         } else {
           showToast('❌ ' + (data.error || 'Failed to create invoice'), 'error');
           btn.disabled = false;
-          btn.textContent = '✅ Create Invoice';
+          btn.textContent = 'Create Invoice';
         }
       } catch (e) {
         showToast('❌ Server error — is wrangler dev running?', 'error');
         btn.disabled = false;
-        btn.textContent = '✅ Create Invoice';
+        btn.textContent = 'Create Invoice';
       }
     }
 

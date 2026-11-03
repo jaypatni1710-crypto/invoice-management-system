@@ -727,6 +727,14 @@
       margin-bottom: 24px;
     }
 
+    .eye-icon { 
+      width: 1em; 
+      height: 1em; 
+      vertical-align: -0.15em; 
+      margin-right: 4px; 
+      color: #3b82f6; 
+    }
+
     .modal-header h2 {
       font-family: 'Syne', sans-serif;
       font-size: 18px;
@@ -853,6 +861,16 @@
       border-bottom: 1px solid var(--border);
     }
 
+    .modal-header h2 svg, .form-section-title svg { width: 16px; height: 16px; vertical-align: -3px; margin-right: 6px; stroke: rgb(216 117 34); }
+    .modal-header h2 svg.lucide-eye { color: #63b3ed; }
+    .modal-header h2 svg.lucide-pencil, .form-section-title svg.lucide-pencil { color: var(--accent); }
+    #modal-view-company .modal-header h2 { color: var(--accent); }
+    #modal-add-company .modal-header h2 { color: var(--accent); }
+    #modal-edit-company .modal-header h2 { color: var(--accent); }
+    #modal-add-invoice .modal-header h2, #modal-add-invoice .modal-header h2 svg { color: var(--accent); }
+    #modal-invoice-detail .modal-header h2, #modal-invoice-detail .modal-header h2 svg { color: var(--accent); }
+    #modal-add-declaration .modal-header h2, #modal-add-declaration .modal-header h2 svg { color: var(--accent); }
+
     .modal-footer {
       display: flex;
       justify-content: flex-end;
@@ -866,6 +884,8 @@
       max-width: 400px;
       text-align: center;
     }
+
+        .confirm-modal .confirm-icon svg { width: 48px; height: 48px; color: var(--danger); stroke: currentColor; }
 
     .confirm-modal .confirm-icon {
       font-size: 48px;
@@ -1147,7 +1167,7 @@
   <div class="modal-overlay" id="modal-add-company">
     <div class="modal">
       <div class="modal-header">
-        <h2>➕ Add Company Details</h2>
+        <h2><i data-lucide="plus"></i> Add Company Details</h2>
         <button class="modal-close" onclick="closeModal('modal-add-company')">✕</button>
       </div>
       <div class="form-group">
@@ -1155,7 +1175,7 @@
         <input type="text" class="form-input" id="f-company-name" placeholder="e.g. Shree Narmada Transport Company" />
         <div class="field-error" id="f-company-name-err">⚠ Company name is required</div>
       </div>
-      <div class="form-section-title">📍 Address</div>
+      <div class="form-section-title"><i data-lucide="map-pin"></i> Address</div>
       <div class="form-group">
         <label class="form-label">Address Line 1</label>
         <input type="text" class="form-input" id="f-address" placeholder="Plot No, Street, Area..." />
@@ -1176,7 +1196,7 @@
         <label class="form-label">State</label>
         <input type="text" class="form-input" id="f-state" value="Gujarat[24]" />
       </div>
-      <div class="form-section-title">📞 Contact</div>
+      <div class="form-section-title"><i data-lucide="phone"></i> Contact</div>
       <div class="form-row">
         <div class="form-group">
           <label class="form-label">Phone 1</label>
@@ -1191,7 +1211,7 @@
           <div class="field-error" id="f-phone2-err">⚠ Phone must contain digits only</div>
         </div>
       </div>
-      <div class="form-section-title">🧾 GST Details</div>
+      <div class="form-section-title"><i data-lucide="receipt"></i> GST Details</div>
       <div class="form-group">
         <label class="form-label">GST No</label>
         <input type="text" class="form-input" id="f-gst" placeholder="e.g. 24AAUFN9962C1ZS" oninput="gstFormat(this)"
@@ -1200,7 +1220,7 @@
       </div>
       <div class="modal-footer">
         <button class="btn btn-ghost" onclick="closeModal('modal-add-company')">Cancel</button>
-        <button class="btn btn-primary" onclick="saveCompany()">💾 Save Company</button>
+        <button class="btn btn-primary" onclick="saveCompany()">Save Company</button>
       </div>
     </div>
   </div>
@@ -1209,14 +1229,14 @@
   <div class="modal-overlay" id="modal-view-company">
     <div class="modal">
       <div class="modal-header">
-        <h2>👁 Company Details</h2>
+        <h2><svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg> Company Details</h2>
         <button class="modal-close" onclick="closeModal('modal-view-company')">✕</button>
       </div>
       <div class="view-field">
         <div class="vf-label">Company Name</div>
         <div class="vf-value" id="v-company-name">—</div>
       </div>
-      <div class="form-section-title">📍 Address</div>
+      <div class="form-section-title"><i data-lucide="map-pin"></i> Address</div>
       <div class="view-field">
         <div class="vf-label">Address Line 1</div>
         <div class="vf-value" id="v-address">—</div>
@@ -1235,7 +1255,7 @@
         <div class="vf-label">State</div>
         <div class="vf-value" id="v-state">—</div>
       </div>
-      <div class="form-section-title">📞 Contact</div>
+      <div class="form-section-title"><i data-lucide="phone"></i> Contact</div>
       <div class="view-row">
         <div class="view-field">
           <div class="vf-label">Phone 1</div>
@@ -1246,7 +1266,7 @@
           <div class="vf-value" id="v-phone2">—</div>
         </div>
       </div>
-      <div class="form-section-title">🧾 GST Details</div>
+      <div class="form-section-title"><i data-lucide="receipt"></i> GST Details</div>
       <div class="view-field">
         <div class="vf-label">GST No</div>
         <div class="vf-value" id="v-gst">—</div>
@@ -1270,7 +1290,7 @@
         <input type="text" class="form-input" id="e-company-name" />
         <div class="field-error" id="e-company-name-err">⚠ Company name is required</div>
       </div>
-      <div class="form-section-title">📍 Address</div>
+      <div class="form-section-title"><i data-lucide="map-pin"></i> Address</div>
       <div class="form-group">
         <label class="form-label">Address Line 1</label>
         <input type="text" class="form-input" id="e-address" />
@@ -1290,7 +1310,7 @@
         <label class="form-label">State</label>
         <input type="text" class="form-input" id="e-state" />
       </div>
-      <div class="form-section-title">📞 Contact</div>
+      <div class="form-section-title"><i data-lucide="phone"></i> Contact</div>
       <div class="form-row">
         <div class="form-group">
           <label class="form-label">Phone 1</label>
@@ -1303,7 +1323,7 @@
           <div class="field-error" id="e-phone2-err">⚠ Phone must contain digits only</div>
         </div>
       </div>
-      <div class="form-section-title">🧾 GST Details</div>
+      <div class="form-section-title"><i data-lucide="receipt"></i> GST Details</div>
       <div class="form-group">
         <label class="form-label">GST No</label>
         <input type="text" class="form-input" id="e-gst" oninput="gstFormat(this)" maxlength="15"
@@ -1312,7 +1332,7 @@
       </div>
       <div class="modal-footer">
         <button class="btn btn-ghost" onclick="closeModal('modal-edit-company')">Cancel</button>
-        <button class="btn btn-primary" onclick="updateCompany()">💾 Update Company</button>
+        <button class="btn btn-primary" onclick="updateCompany()">Update Company</button>
       </div>
     </div>
   </div>
@@ -1404,7 +1424,7 @@
         <!-- RAILWAY -->
         <div id="railway-section" style="display:none">
 
-          <div class="form-section-title">🚆 Railway Client Details</div>
+          <div class="form-section-title"><i data-lucide="train-front"></i> Railway Client Details</div>
 
           <div class="form-group">
             <label class="form-label">Client Name</label>
@@ -1494,7 +1514,7 @@
         </div>
 
 
-        <div class="form-section-title">📦 Invoice Entries</div>
+        <div class="form-section-title"><i data-lucide="package"></i> Invoice Entries</div>
 
         <div class="table-wrap" style="margin-top:10px;">
           <table id="invoice-items-table">
@@ -1572,7 +1592,7 @@
   <div class="modal-overlay" id="modal-view-invoice">
     <div class="modal" style="max-width:900px; width:95%;">
       <div class="modal-header">
-        <h2>👁 Invoice Details</h2>
+        <h2><svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg> Invoice Details</h2>
         <button class="modal-close" onclick="closeModal('modal-view-invoice')">✕</button>
       </div>
 
@@ -1705,7 +1725,7 @@
 
       <div class="modal-footer">
         <button class="btn btn-ghost" onclick="closeModal('modal-edit-invoice')">Cancel</button>
-        <button class="btn btn-primary" onclick="saveEditInvoice()">💾 Update Invoice</button>
+        <button class="btn btn-primary" onclick="saveEditInvoice()">Update Invoice</button>
       </div>
     </div>
   </div>
@@ -2218,7 +2238,7 @@
         <div class="action-group">
 
           <button class="icon-btn icon-btn-view" title="View Invoice" onclick="viewInvoice(${inv.id})">
-            👁
+            <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
           </button>
 
           <button class="icon-btn icon-btn-edit" title="Edit Invoice" onclick="editInvoice(${inv.id})">
