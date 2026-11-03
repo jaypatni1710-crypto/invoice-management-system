@@ -2308,7 +2308,7 @@
           </div>
         </div>
         <!-- iframe to render invoice -->
-        <iframe id="pdf-preview-frame" style="flex:1;border:none;background:#525659;width:100%;"></iframe>
+        <iframe id="pdf-preview-frame" style="flex:1;border:none;background:#fff;width:100%;"></iframe>
       </div>
     </div>
 
@@ -3487,14 +3487,7 @@ ${css}
           iframe.srcdoc = html;
         });
 
-        const idoc = iframe.contentDocument;
-        idoc.documentElement.style.background = '#fff';
-        idoc.body.style.margin = '0';
-        idoc.body.style.boxShadow = 'none';
-        idoc.body.style.padding = '8mm 8mm 9mm';
-        idoc.body.style.width = '210mm';
-
-        const target = idoc.body;
+        const target = iframe.contentDocument.body;
 
         const worker = html2pdf().from(target).set({
           margin: 0,
@@ -3538,7 +3531,12 @@ ${css}
         const railData = parseRailwayData(bill.note);
         const isRailway = !!railData;
 
-        const html = isRailway ? generateRailwayInvoiceHTML(bill, railData) : generateRegularInvoiceHTML(bill);
+        let html = isRailway ? generateRailwayInvoiceHTML(bill, railData) : generateRegularInvoiceHTML(bill);
+        html = html.replace('</head>', `<style>
+  html { background: #fff !important; }
+  body { margin: 0 !important; box-shadow: none !important; padding: 8mm 8mm 9mm !important; width: 210mm !important; }
+  .print-btn-bar { display: none !important; }
+</style></head>`);
 
         // Show in modal iframe
         const frame = document.getElementById('pdf-preview-frame');
@@ -3593,7 +3591,7 @@ ${css}
         await html2pdf().set({
           margin: 0,
           filename: 'Invoice-' + bill.bill_no + '.pdf',
-          image: { type: 'jpeg', quality: 0.98 },
+          image: { type: 'png' },
           html2canvas: { scale: 2, useCORS: true, backgroundColor: '#ffffff' },
           jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
         }).from(sourceEl).save();
@@ -4359,7 +4357,7 @@ ${css}
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
   @page { size: A4; margin: 10mm; }
-  html { background: #525659; min-height: 100%; }
+  html { background: #fff; min-height: 100%; }
   body { font-family: 'Times New Roman', serif; font-size: 13px; color: #000; background: #fff; width: 210mm; min-height: 297mm; padding: 30px 40px; margin: 20px auto; box-shadow: 0 4px 24px rgba(0,0,0,0.4); }
   .top-text { text-align:center; font-size:12px; margin-bottom:6px; }
   .header { display:flex; align-items:center; justify-content:center; gap:20px; margin-bottom:10px; }
@@ -4476,7 +4474,7 @@ ${css}
         await html2pdf().set({
           margin: 0,
           filename: 'Declaration-' + d.company + '.pdf',
-          image: { type: 'jpeg', quality: 0.98 },
+          image: { type: 'png' },
           html2canvas: { scale: 2, useCORS: true, backgroundColor: '#ffffff' },
           jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
         }).from(sourceEl).save();
@@ -5163,7 +5161,7 @@ ${css}
       return `
         @page { size: A4; margin: 8mm 9mm; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { background: #525659; min-height: 100%; }
+        html { background: #fff; min-height: 100%; }
         body {
           font-family: Arial, sans-serif;
           background: #fff;
